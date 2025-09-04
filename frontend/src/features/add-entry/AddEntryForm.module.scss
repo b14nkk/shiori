@@ -1,0 +1,91 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.form {
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow: auto;
+  animation: slideInUp 0.3s ease-out;
+}
+
+.timeLabel {
+  color: #666;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 12px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+.textarea {
+  min-height: 120px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+// Media queries for mobile
+@media (max-width: 768px) {
+  .overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .form {
+    max-width: 100%;
+    border-radius: 12px 12px 0 0;
+    animation: slideInUp 0.3s ease-out;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  @keyframes slideInUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+}

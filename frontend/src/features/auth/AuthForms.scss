@@ -1,0 +1,408 @@
+// Стили для форм аутентификации Shiori
+.auth-form {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-border);
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 8px;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__error {
+    padding: 1rem;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #dc2626;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__error-icon {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  &__error-text {
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+    font-family: inherit;
+
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    &:disabled {
+      background-color: #f9fafb;
+      color: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    &--valid {
+      border-color: #10b981;
+      background-color: #f0fdf4;
+    }
+
+    &--invalid {
+      border-color: #ef4444;
+      background-color: #fef2f2;
+    }
+  }
+
+  &__password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__password-toggle {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+    border-radius: 4px;
+
+    &:hover:not(:disabled) {
+      color: var(--color-text-secondary);
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+  }
+
+  &__field-message {
+    font-size: 0.825rem;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &--valid {
+      color: #059669;
+    }
+
+    &--invalid {
+      color: #dc2626;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: var(--color-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+
+    &:hover:not(:disabled) {
+      background: var(--color-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+
+    &:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    &:focus {
+      outline: 3px solid rgba(59, 130, 246, 0.3);
+      outline-offset: 2px;
+    }
+  }
+
+  &__spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  &__footer {
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__switch {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  &__switch-button {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      color: var(--color-primary-dark);
+    }
+
+    &:disabled {
+      color: #9ca3af;
+      cursor: not-allowed;
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+}
+
+// Анимации
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Дополнительные стили для контейнера аутентификации
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+// Стили для переключателя форм
+.auth-switcher {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  &__tabs {
+    display: inline-flex;
+    background: var(--color-background);
+    border-radius: 8px;
+    padding: 0.25rem;
+    border: 1px solid var(--color-border);
+  }
+
+  &__tab {
+    padding: 0.5rem 1.5rem;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &--active {
+      background: var(--color-white);
+      color: var(--color-primary);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    &:hover:not(&--active) {
+      color: var(--color-text-primary);
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Темная тема (если будет добавлена)
+@media (prefers-color-scheme: dark) {
+  .auth-form {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+
+    &__title {
+      color: #f9fafb;
+    }
+
+    &__subtitle {
+      color: #d1d5db;
+    }
+
+    &__label {
+      color: #f3f4f6;
+    }
+
+    &__input {
+      background: #374151;
+      border-color: #4b5563;
+      color: #f9fafb;
+
+      &::placeholder {
+        color: #9ca3af;
+      }
+
+      &:focus {
+        border-color: #60a5fa;
+        box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+      }
+
+      &:disabled {
+        background-color: #1f2937;
+        color: #6b7280;
+      }
+    }
+
+    &__error {
+      background-color: #450a0a;
+      border-color: #dc2626;
+      color: #fca5a5;
+    }
+
+    &__password-toggle {
+      color: #9ca3af;
+
+      &:hover:not(:disabled) {
+        color: #d1d5db;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &__footer {
+      border-top-color: #4b5563;
+    }
+
+    &__switch {
+      color: #d1d5db;
+    }
+  }
+
+  .auth-container {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  }
+
+  .auth-switcher {
+    &__tabs {
+      background: #374151;
+      border-color: #4b5563;
+    }
+
+    &__tab {
+      color: #9ca3af;
+
+      &--active {
+        background: #1f2937;
+        color: #60a5fa;
+      }
+
+      &:hover:not(&--active) {
+        color: #d1d5db;
+        background: rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
+}

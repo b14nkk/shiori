@@ -1,0 +1,141 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  padding-bottom: 100px; // Space for FAB
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 20px 0;
+}
+
+.backButton {
+  color: #fff !important;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+.title {
+  flex: 1;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.error {
+  background-color: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.loading {
+  text-align: center;
+  padding: 80px 20px;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.entriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.entryCard {
+  background-color: #fff;
+  border: 1px solid #333;
+  animation: slideInUp 0.3s ease-out;
+
+  &:hover {
+    border-color: #666;
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 80px 20px;
+  color: #666;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #999;
+    margin: 0;
+  }
+}
+
+.fab {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 2px solid #fff !important;
+
+  &:hover {
+    background-color: #f0f0f0 !important;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Media queries for mobile
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+    padding-bottom: 80px;
+  }
+
+  .header {
+    padding: 16px 0;
+    margin-bottom: 24px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .entriesList {
+    gap: 12px;
+  }
+
+  .emptyState {
+    padding: 60px 16px;
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
