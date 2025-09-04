@@ -1,0 +1,66 @@
+{
+  "name": "Shiori Personal Diary",
+  "description": "A secure personal diary application with JWT authentication and multi-user support",
+  "repository": "https://github.com/your-username/shiori",
+  "logo": "https://raw.githubusercontent.com/your-username/shiori/main/frontend/public/favicon.ico",
+  "keywords": ["nodejs", "react", "diary", "journal", "sqlite", "jwt", "authentication"],
+  "success_url": "/",
+  "website": "https://github.com/your-username/shiori",
+  "image": "heroku/nodejs",
+  "stack": "heroku-20",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:mini",
+      "as": "DATABASE"
+    }
+  ],
+  "env": {
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    },
+    "JWT_SECRET": {
+      "description": "Secret key for JWT tokens (minimum 32 characters)",
+      "generator": "secret"
+    },
+    "JWT_EXPIRES_IN": {
+      "description": "JWT token expiration time",
+      "value": "7d"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "NPM production mode",
+      "value": "false"
+    }
+  },
+  "scripts": {
+    "postdeploy": "npm run build"
+  },
+  "environments": {
+    "test": {
+      "addons": [],
+      "env": {
+        "NODE_ENV": "test"
+      },
+      "formation": {
+        "web": {
+          "quantity": 1,
+          "size": "eco"
+        }
+      },
+      "scripts": {
+        "test": "npm test"
+      }
+    }
+  }
+}
