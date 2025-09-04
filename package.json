@@ -1,8 +1,12 @@
 {
   "name": "shiori-notes-app",
-  "version": "1.0.0",
-  "description": "Simple notes application with React frontend and Node.js backend",
+  "version": "3.0.0",
+  "description": "Personal diary application with authentication and multi-user support",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "cd backend && npm run dev",
